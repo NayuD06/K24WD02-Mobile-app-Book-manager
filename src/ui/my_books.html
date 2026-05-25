@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Books - BookWorm</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="admin-body">
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="side-brand">
+          <div class="auth-logo-dot light" aria-hidden="true"></div>
+          <h2>BookWorm</h2>
+          <p>MY BOOKS</p>
+        </div>
+
+        <nav class="side-nav">
+          <a href="books.html" class="side-link">Public Books</a>
+          <a href="my_books.html" class="side-link active">My Books</a>
+          <a href="profile.html" class="side-link">Profile</a>
+        </nav>
+
+        <button id="sideLogout" class="side-logout">Log Out</button>
+      </aside>
+
+      <main class="admin-main">
+        <header class="admin-topbar">
+          <div>
+            <h1>My Books</h1>
+            <p id="myBooksWelcome">Loading...</p>
+          </div>
+          <div class="admin-clock" id="adminClock"></div>
+        </header>
+
+        <p id="myBooksStatus" class="status"></p>
+
+        <section class="panel">
+          <div class="table-head">
+            <h2>Your Books</h2>
+            <div class="table-head-actions">
+              <a href="book_form.html" class="dark-action-btn"><span class="add-btn-icon">+</span> Add Book</a>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Title</th>
+                  <th>Genre</th>
+                  <th>Owner</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="myBooksTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <details id="myBooksDebug" class="panel debug-panel" style="display:none">
+          <summary>Debug info</summary>
+          <pre id="myBooksDebugPre" class="debug-pre"></pre>
+        </details>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+
+    <div id="modalRoot" class="modal-root hidden"></div>
+  </body>
+</html>

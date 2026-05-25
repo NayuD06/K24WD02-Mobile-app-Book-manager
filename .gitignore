@@ -1,0 +1,9 @@
+### Local secrets / credentials
+.env
+.env.*
+book-manager-d3092-firebase-adminsdk-fbsvc-9ae0f45ed4.json
+google-services.json
+google-services (1).json
+postman/
+img/
+node_modules/

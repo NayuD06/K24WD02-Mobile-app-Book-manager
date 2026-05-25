@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Books - Book Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="site-body">
+    <header class="navbar">
+      <div class="nav-left"><a class="brand" href="/">Book Manager</a></div>
+      <nav class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="books.html" class="nav-link">Books</a>
+        <a href="book_detail.html" class="nav-link">Details</a>
+      </nav>
+      <div class="nav-right">
+        <a href="login.html" id="nav-auth" class="nav-link">Login</a>
+      </div>
+    </header>
+    <main class="page-shell">
+      <section class="hero-panel">
+        <div>
+          <span class="eyebrow">Book Manager</span>
+          <h1>Books</h1>
+          <p>Browse public books, view covers, owners, reviews, and create your own book.</p>
+        </div>
+        <div class="hero-actions">
+          <a href="book_form.html" id="createBookBtn" class="btn btn-primary">Add Book</a>
+          <button id="refreshBtn" class="btn btn-secondary">Refresh</button>
+          <button id="logoutBtn" class="btn btn-ghost">Logout</button>
+        </div>
+      </section>
+
+      <section class="toolbar-panel">
+        <input id="booksSearch" class="toolbar-input" placeholder="Search by title, author, or owner..." />
+        <input id="booksGenre" class="toolbar-input" placeholder="Filter by genre" />
+        <label class="toolbar-check">
+          <input id="mineOnlyToggle" type="checkbox" />
+          My books only
+        </label>
+      </section>
+
+      <p id="booksStatus" class="status"></p>
+      <section id="booksWrap">
+        <div id="booksList" class="book-grid"></div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Book Details - Book Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="site-body">
+    <header class="navbar">
+      <div class="nav-left"><a class="brand" href="/">Book Manager</a></div>
+      <nav class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="books.html" class="nav-link">Books</a>
+        <a href="book_detail.html" class="nav-link">Details</a>
+      </nav>
+      <div class="nav-right">
+        <a href="login.html" id="nav-auth" class="nav-link">Login</a>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <p id="bookDetailStatus" class="status"></p>
+      <section id="bookDetail" class="detail-shell"></section>
+
+      <section class="review-panel">
+        <div class="section-title">
+          <span class="eyebrow">Reviews</span>
+          <h2>Book Reviews</h2>
+        </div>
+        <form id="reviewForm" class="review-form">
+          <label>Rating</label>
+          <select id="reviewRating" required>
+            <option value="5">5 - Excellent</option>
+            <option value="4">4 - Great</option>
+            <option value="3">3 - Good</option>
+            <option value="2">2 - Needs work</option>
+            <option value="1">1 - Poor</option>
+          </select>
+          <label>Comment</label>
+          <textarea id="reviewComment" placeholder="Write your thoughts..." required></textarea>
+          <button type="submit" class="btn btn-primary">Submit review</button>
+        </form>
+        <p id="reviewStatus" class="status"></p>
+        <ul id="bookReviews" class="review-list"></ul>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

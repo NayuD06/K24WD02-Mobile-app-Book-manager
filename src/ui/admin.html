@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Dashboard - BookWorm</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="admin-body">
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="side-brand">
+          <div class="auth-logo-dot light" aria-hidden="true"></div>
+          <h2>BookWorm</h2>
+          <p>LIBRARY</p>
+        </div>
+
+        <nav class="side-nav">
+          <button class="side-link active" data-view="dashboard">Dashboard</button>
+          <button class="side-link" data-view="books">Books</button>
+          <button class="side-link" data-view="users">Users</button>
+          <a href="profile.html" class="side-link">Profile</a>
+        </nav>
+
+        <button id="sideLogout" class="side-logout">Log Out</button>
+      </aside>
+
+      <main class="admin-main">
+        <header class="admin-topbar">
+          <div style="display:flex;align-items:center;gap:12px">
+            <button id="mobileMenuBtn" class="icon-btn" aria-label="Menu">&#9776;</button>
+            <div>
+              <h1>Admin Dashboard</h1>
+              <p id="adminWelcome">Loading...</p>
+            </div>
+          </div>
+          <div class="admin-clock" id="adminClock"></div>
+        </header>
+
+        <p id="adminStatus" class="status"></p>
+
+        <section id="view-dashboard" class="admin-view is-active">
+          <section class="metric-grid">
+          <article class="metric-card"><h3 id="mUsers">0</h3><p>Total Users</p></article>
+          <article class="metric-card"><h3 id="mBooks">0</h3><p>Total Books</p></article>
+          <article class="metric-card"><h3 id="mReviews">0</h3><p>Total Reviews</p></article>
+          <article class="metric-card"><h3 id="mAdmins">0</h3><p>Admin Count</p></article>
+          </section>
+
+          <section class="admin-grid">
+          <article class="panel chart-panel">
+            <h3>Review Distribution</h3>
+            <div id="reviewPie" class="review-pie"></div>
+            <div class="pie-legend">
+              <span><i class="dot dark"></i> Low (1-2)</span>
+              <span><i class="dot light"></i> Good (3-5)</span>
+            </div>
+          </article>
+
+          <article class="panel">
+            <h3>Recent Users</h3>
+            <ul id="usersList" class="admin-list"></ul>
+          </article>
+
+          <article class="panel">
+            <h3>Recent Books</h3>
+            <ul id="booksListAdmin" class="admin-list"></ul>
+          </article>
+
+          <article class="panel">
+            <h3>Latest Reviews</h3>
+            <ul id="reviewsListAdmin" class="admin-list"></ul>
+          </article>
+          </section>
+        </section>
+
+        <section id="view-books" class="admin-view">
+          <div class="table-head">
+            <h2>Book Management</h2>
+            <div class="table-head-actions">
+              <button id="btnAddBook" class="dark-action-btn">
+                <span class="add-btn-icon">+</span>
+                <span>Add Book</span>
+              </button>
+              <label class="search-box" aria-label="Search books">
+                <span class="search-icon">&#128269;</span>
+                <input id="searchBooks" placeholder="Search by ID or Name" />
+              </label>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Title</th>
+                  <th>Genre</th>
+                  <th>Owner</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="booksTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="view-users" class="admin-view">
+          <div class="table-head">
+            <h2>User Management</h2>
+            <div class="table-head-actions">
+              <button id="btnAddUser" class="dark-action-btn">
+                <span class="add-btn-icon">+</span>
+                <span>Add User</span>
+              </button>
+              <label class="search-box" aria-label="Search users">
+                <span class="search-icon">&#128269;</span>
+                <input id="searchUsers" placeholder="Search by ID or Name" />
+              </label>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Username</th>
+                  <th>Role</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="usersTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="admin.js"></script>
+
+    <div id="modalRoot" class="modal-root hidden"></div>
+  </body>
+</html>

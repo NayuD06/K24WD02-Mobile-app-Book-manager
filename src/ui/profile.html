@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Profile</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="site-body">
+    <header class="navbar">
+      <div class="nav-left"><a class="brand" href="/">Book Manager</a></div>
+      <nav class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="books.html" class="nav-link">Books</a>
+      </nav>
+      <div class="nav-right">
+        <a href="login.html" id="nav-auth" class="nav-link">Login</a>
+      </div>
+    </header>
+    <main class="page-shell narrow-shell">
+      <section class="panel-card">
+      <span class="eyebrow">Account</span>
+      <h1>Profile</h1>
+      <form id="profileForm">
+        <label>Name</label>
+        <input id="p_name" />
+        <label>Email</label>
+        <input id="p_email" />
+        <label>New password (leave blank to keep current password)</label>
+        <input id="p_password" type="password" />
+        <label>Avatar</label>
+        <input id="p_avatar" type="file" accept="image/*" />
+        <div id="avatarPreview" class="avatar-preview"></div>
+        <button type="submit">Save</button>
+      </form>
+      <p id="profileStatus" class="status"></p>
+      <p><a href="/">Back</a></p>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

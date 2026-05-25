@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Book Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="admin-body">
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="side-brand">
+          <div class="auth-logo-dot light" aria-hidden="true"></div>
+          <h2>BookWorm</h2>
+          <p>LIBRARY</p>
+        </div>
+
+        <nav class="side-nav">
+          <a href="/" class="side-link active">Home</a>
+          <a href="books.html" class="side-link">Books</a>
+          <a href="my_books.html" class="side-link">My Books</a>
+        </nav>
+
+        <button id="sideLogout" class="side-logout">Log Out</button>
+      </aside>
+
+      <main class="admin-main">
+        <header class="admin-topbar">
+          <div>
+            <h1>Welcome to BookWorm</h1>
+            <p>Digital library for books, reviews, and role-based access.</p>
+          </div>
+          <div class="admin-clock" id="adminClock"></div>
+        </header>
+
+        <section class="panel-card">
+          <span class="eyebrow">Quick Start</span>
+          <h2>Main Flow</h2>
+          <p>Open <strong>Login</strong> to get a token, visit <strong>Books</strong> to browse public books, and open a detail page to read reviews.</p>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

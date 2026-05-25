@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Create / Edit Book</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="site-body">
+    <header class="navbar">
+      <div class="nav-left"><a class="brand" href="/">Book Manager</a></div>
+      <nav class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="books.html" class="nav-link">Books</a>
+        <a href="book_detail.html" class="nav-link">Details</a>
+      </nav>
+      <div class="nav-right">
+        <a href="login.html" id="nav-auth" class="nav-link">Login</a>
+      </div>
+    </header>
+    <main class="page-shell narrow-shell">
+      <section class="panel-card">
+      <span class="eyebrow">Book Manager</span>
+      <h1 id="formTitle">Create Book</h1>
+      <form id="bookForm">
+        <label>Title</label>
+        <input id="b_title" required />
+        <label>Author</label>
+        <input id="b_author" required />
+        <label>Description</label>
+        <textarea id="b_description"></textarea>
+        <label>Genre</label>
+        <input id="b_genre" required />
+        <label>Cover image</label>
+        <input id="b_coverFile" type="file" accept="image/*" />
+        <div id="coverPreview" class="cover-preview"></div>
+        <label>Published date</label>
+        <input id="b_publishedDate" type="date" />
+        <button type="submit">Save</button>
+      </form>
+      <p id="bookStatus" class="status"></p>
+      <p><a href="books.html">Back to books</a></p>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
