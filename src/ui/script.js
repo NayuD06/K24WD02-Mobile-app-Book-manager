@@ -455,10 +455,6 @@ function renderBookDetailPage() {
       const book = await fetchBook(bookId);
       const reviews = await fetchBookReviews(bookId);
       const canManage = canManageBook(book, user);
-      const alreadyReviewed = user && reviews.some((review) => {
-        const reviewerId = typeof review.user === 'string' ? review.user : review.user?._id;
-        return reviewerId === user._id;
-      });
 
       detail.innerHTML = `
         <div class="detail-grid">
@@ -515,8 +511,7 @@ function renderBookDetailPage() {
           reviewForm.classList.add('hidden');
         } else {
           reviewForm.classList.remove('hidden');
-          reviewForm.dataset.alreadyReviewed = alreadyReviewed ? 'true' : 'false';
-          reviewStatus.textContent = alreadyReviewed ? 'You have already reviewed this book. You can delete the old review from the list.' : '';
+          reviewStatus.textContent = '';
         }
       }
 
@@ -571,6 +566,7 @@ function renderProfilePage() {
 
   const avatarPreview = document.getElementById('avatarPreview');
   const avatarInput = document.getElementById('p_avatar');
+  const deleteAccountBtn = document.getElementById('deleteAccountBtn');
 
   function renderAvatarPreview(src) {
     if (!avatarPreview) return;
@@ -638,6 +634,19 @@ function renderProfilePage() {
           profileStatus.textContent = 'Profile updated successfully';
         } catch (err) {
           profileStatus.textContent = err.message || 'Failed to update profile';
+        }
+      });
+
+      deleteAccountBtn?.addEventListener('click', async () => {
+        if (!confirm('Delete your account? This will remove your books and reviews too.')) return;
+
+        try {
+          await deleteUser(profile._id);
+          localStorage.removeItem('bm_token');
+          localStorage.removeItem('bm_user');
+          window.location.href = '/';
+        } catch (err) {
+          profileStatus.textContent = err.message || 'Failed to delete account';
         }
       });
     } catch (err) {

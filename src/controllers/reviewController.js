@@ -69,11 +69,6 @@ const createReview = async (req, res, next) => {
       return res.status(400).json({ message: 'Comment phải có ít nhất 5 ký tự' });
     }
 
-    const existingReview = await Review.findOne({ book: bookId, user: req.user._id });
-    if (existingReview) {
-      return res.status(400).json({ message: 'Bạn đã review sách này rồi' });
-    }
-
     const review = new Review({ book: bookId, user: req.user._id, rating, comment });
     const createdReview = await review.save();
     res.status(201).json(createdReview);

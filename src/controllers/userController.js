@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const Book = require('../models/Book');
+const Review = require('../models/Review');
 const { OAuth2Client } = require('google-auth-library');
 
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID || '111540371054-qnmip7j6mh2afd6opq1b4bl9rql6tpnk.apps.googleusercontent.com';
@@ -236,10 +238,19 @@ const deleteUser = async (req, res, next) => {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    if (!isAdmin(req.user)) {
-      return res.status(403).json({ message: 'Admin privilege required' });
+    if (!isSelf(req.user, req.params.id) && !isAdmin(req.user)) {
+      return res.status(403).json({ message: 'Forbidden' });
     }
 
+    const ownedBooks = await Book.find({ owner: user._id }).select('_id');
+    const ownedBookIds = ownedBooks.map((book) => book._id);
+
+    if (ownedBookIds.length > 0) {
+      await Review.deleteMany({ book: { $in: ownedBookIds } });
+    }
+
+    await Review.deleteMany({ user: user._id });
+    await Book.deleteMany({ owner: user._id });
     await user.deleteOne();
     res.json({ message: 'User deleted successfully' });
   } catch (error) {
